@@ -16,3 +16,14 @@ class ConversationListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Conversation
         fields = ('id', 'users', 'modified_at',)
+
+
+
+
+class ConversationDetailSerializer(serializers.ModelSerializer):
+    users = UserDetailSerializer(many=True, read_only=True)
+
+
+    class Meta:
+        model = Conversation
+        fields = ('id', 'users', 'modified_at',)
